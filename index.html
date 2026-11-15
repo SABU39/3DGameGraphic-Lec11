@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Lec11 Recap · Step7 — 태양계 완성 (위성 + 상호작용)</title>
+  <style>
+    body { font-family: sans-serif; margin: 16px; background:#F4F6F9; color:#26303F; }
+    canvas { border: 1px solid #ccc; display: block; background:#000; cursor: grab; }
+    canvas:active { cursor: grabbing; }
+    .controls { margin-top: 12px; }
+    .controls div { margin: 6px 0; }
+    .controls label { display: inline-block; width: 150px; }
+    .controls input[type=range] { width: 320px; vertical-align: middle; }
+    .hint { color: #555; font-size: .9rem; margin: 6px 0; max-width: 720px; line-height:1.6; }
+    code { background:#e9edf2; border-radius:4px; padding:1px 5px; }
+  </style>
+</head>
+<body>
+  <h1>Step 7 · 태양계 완성 — 위성(계층 변환) + 마우스 상호작용</h1>
+  <p class="hint">행성의 좌표계(<code>planetFrame</code>)를 <b>복사해 물려받아</b> 위성을 그 주위로 공전시킵니다(계층/행렬 스택).
+     공전 <b>궤도선</b>으로 경로를 표시하고, <b>마우스 드래그</b>로 시점을 돌리고 <b>휠</b>로 줌합니다.
+     태양을 중심으로 5개 행성과 일부 행성의 달이 함께 도는 — 00~11주차를 모두 담은 최종 장면입니다.</p>
+  <canvas id="glCanvas" width="1024" height="760"></canvas>
+
+  <div class="controls">
+    <div>
+      <label>전역 속도</label>
+      <input id="speed" type="range" min="0" max="5" step="0.1" value="1">
+      <span id="speedVal">1.0×</span>
+    </div>
+    <div class="hint">🖱 <b>드래그</b> = 시점 회전 · <b>휠</b> = 줌 인/아웃</div>
+  </div>
+
+  <script src="gl-matrix-min.js"></script>
+  <script src="shader_setting.js"></script>
+  <script src="Shaders.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
